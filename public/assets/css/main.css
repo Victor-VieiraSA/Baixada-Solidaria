@@ -1,0 +1,27 @@
+@import url('navbar.css');
+@import url('hero.css');
+@import url('sobre.css');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FCF9F4;
+    font-family: "Manrope", sans-serif;
+    color: #163c3d;
+}
+
+.title
+{
+     font-family: "Noto Serif", serif !important; 
+}
+
+footer {
+    border-top: 1px solid #e5ddd2;
+    color: #555;
+}

@@ -1,0 +1,122 @@
+.sobre-section {
+    padding: 110px 0 70px;
+}
+
+.sobre-content {
+    max-width: 600px;
+}
+
+.sobre-title {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    font-weight: 700;
+    max-width: 600px;
+    color: #0f5661;
+    text-align: justify;
+}
+
+.sobre-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    font-family: "Manrope", sans-serif;
+    color: #5f6668;
+    margin-top: 25px;
+    text-align: justify;
+}
+
+.sobre-image {
+    max-width: 100%;
+    width: 420px;
+    height: auto;
+}
+
+.pilares-section {
+    padding: 50px 0 90px;
+    background-color: #F5F2ED;
+}
+
+.pilares-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #0f5661;
+    margin-bottom: 10px;
+}
+
+.pilar-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 28px 22px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.pilar-card:hover {
+    transform: translateY(-4px);
+}
+
+.pilar-icon {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+}
+
+.pilar-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f5661;
+    margin-bottom: 12px;
+}
+
+.pilar-card-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666b6d;
+    margin-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+    .sobre-section {
+        padding: 80px 0 50px;
+        text-align: center;
+    }
+
+    .sobre-content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .sobre-title {
+        font-size: 2.2rem;
+    }
+
+    .sobre-image {
+        width: 340px;
+    }
+
+    .pilares-section {
+        padding: 40px 0 70px;
+    }
+
+    .pilares-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .sobre-title {
+        font-size: 1.8rem;
+    }
+
+    .sobre-text {
+        font-size: 0.95rem;
+    }
+
+    .sobre-image {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .pilar-card {
+        padding: 22px 18px;
+    }
+}
