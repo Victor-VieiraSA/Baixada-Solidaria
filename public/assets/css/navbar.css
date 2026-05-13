@@ -16,10 +16,15 @@
     color: #78716C !important;
     font-family: "Manrope", sans-serif;
     font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #c45640!important;
 }
 
 .nav-link.active {
-    color: #0f5c63 !important;
+    color: #185c63 !important;
     font-weight: 700;
 }
 

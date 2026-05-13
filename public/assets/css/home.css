@@ -1,0 +1,187 @@
+
+#destaqueCinza{
+color: rgb(245, 239, 239);
+}
+
+#destaqueCinzaEscuro{
+color: rgb(211, 204, 204);
+}
+
+/* PILARES */
+
+.pilares-section {
+    padding: 70px 0 90px;
+    background-color: #F5F2ED;
+}
+
+.pilar-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 30px 24px;
+    height: 100%;
+    border: 1px solid #ece7df;
+    transition: all 0.25s ease;
+}
+
+.pilar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+}
+
+.pilar-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #a84f3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.pilar-card-title {
+    font-size: 1.2rem;
+    color: #0f5661;
+    margin-bottom: 12px;
+}
+
+.pilar-card-text {
+    color: #667071;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* COMO FUNCIONA */
+
+.funciona-section {
+    padding: 100px 0;
+}
+
+.funciona-number {
+    width: 46px;
+    height: 46px;
+    background-color: #0f5661;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    font-weight: 700;
+}
+
+.funciona-title {
+    font-size: 1.3rem;
+    color: #0f5661;
+    margin-bottom: 14px;
+}
+
+.funciona-text {
+    max-width: 260px;
+    margin: 0 auto;
+    color: #667071;
+    line-height: 1.7;
+}
+
+/* CTA */
+
+.cta-section {
+    padding-bottom: 40px;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, #0f5661, #0b4349);
+    border-radius: 20px;
+    padding: 70px 40px;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.cta-text {
+    color: rgba(255,255,255,0.82);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.btn-cta-light {
+    border-color: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.btn-cta-light:hover {
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 991.98px) {
+
+    .sobre-section {
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+
+    .sobre-content {
+        margin: 0 auto;
+    }
+
+    .sobre-title {
+        font-size: 2.2rem;
+    }
+
+    .sobre-image {
+        width: 340px;
+    }
+
+    .funciona-section {
+        padding: 80px 0;
+    }
+
+    .cta-box {
+        padding: 55px 28px;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .sobre-title {
+        font-size: 1.9rem;
+    }
+
+    .sobre-text {
+        font-size: 0.95rem;
+    }
+
+    .sobre-image {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .pilar-card {
+        padding: 24px 20px;
+    }
+
+    .cta-title {
+        font-size: 1.8rem;
+    }
+
+}
+

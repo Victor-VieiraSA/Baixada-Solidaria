@@ -1,0 +1,278 @@
+.pontos-hero {
+    padding: 90px 0 50px;
+}
+
+.pontos-badge {
+    display: inline-block;
+    background-color: #dfe4df;
+    color: #0f5661;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.pontos-title {
+    font-size: 3rem;
+    color: #0f5661;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+#destaqueBranco{
+color: white;
+}
+
+.pontos-title-b {
+    font-size: 3rem;
+    color: #0f5661;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.pontos-text {
+    max-width: 700px;
+    color: #666b6d;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.filtros-box {
+    background-color: #f3efe9;
+    border: 1px solid #e5ddd2;
+    border-radius: 18px;
+    padding: 25px;
+}
+
+.filtro-label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+    color: #555;
+}
+
+.filtro-input {
+    height: 50px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: none !important;
+}
+
+.filtro-input:focus {
+    border-color: #0f5661;
+}
+
+/* CARDS */
+
+.pontos-cards {
+    padding: 30px 0 80px;
+}
+
+.ponto-card {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e7dfd5;
+    height: 100%;
+    transition: 0.2s ease;
+}
+
+.ponto-card:hover {
+    transform: translateY(-4px);
+}
+
+.ponto-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.ponto-card-body {
+    padding: 22px;
+}
+
+.ponto-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.ponto-tags span {
+    background-color: #dfece8;
+    color: #0f5661;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.ponto-card-title {
+    font-size: 1.7rem;
+    color: #0f5661;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.ponto-card-inst {
+    color: #a84f3d;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.ponto-info {
+    padding-left: 18px;
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.ponto-desc {
+    margin-top: 18px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.ponto-btn {
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 12px;
+    color: #0f5661;
+    font-weight: 700;
+    background-color: #fff;
+}
+
+.ponto-btn:hover {
+    background-color: #f5f2ed;
+    color: #0f5661;
+}
+
+/* DESTAQUES */
+
+.destaques-section {
+    padding: 20px 0 90px;
+}
+
+.destaque-card {
+    background-color: #fff;
+    border: 1px solid #e5ddd2;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    height: 100%;
+}
+
+.destaque-primary {
+    background-color: #0f5661;
+    color: #fff;
+}
+
+.destaque-primary h3,
+.destaque-primary p {
+    color: #fff;
+}
+
+.destaque-card h3 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #0f5661;
+}
+
+.destaque-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* CTA */
+
+.cta-ponto {
+    padding: 0 0 40px;
+}
+
+.cta-box {
+    background-color: #f3efe9;
+    border-radius: 18px;
+    padding: 70px 30px;
+}
+
+.cta-box h2 {
+    font-size: 2.7rem;
+    color: #0f5661;
+    margin-bottom: 20px;
+}
+
+.cta-box p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.cta-btn {
+    background-color: #a84f3d;
+    border: 1px solid #a84f3d;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.cta-btn:hover {
+    background-color: #943f2e;
+    border-color: #943f2e;
+    color: #fff;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 991.98px) {
+
+    .pontos-title {
+        font-size: 2.5rem;
+    }
+
+    .cta-box h2 {
+        font-size: 2.1rem;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .pontos-hero {
+        padding: 70px 0 40px;
+    }
+
+    .pontos-title {
+        font-size: 2rem;
+    }
+
+    .pontos-text {
+        font-size: 1rem;
+    }
+
+    .filtros-box {
+        padding: 18px;
+    }
+
+    .ponto-card-title {
+        font-size: 1.4rem;
+    }
+
+    .destaque-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .cta-box {
+        padding: 50px 20px;
+    }
+
+    .cta-box h2 {
+        font-size: 1.8rem;
+    }
+
+}

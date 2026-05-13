@@ -1,0 +1,240 @@
+.indicar-hero {
+    padding: 110px 0 80px;
+}
+
+.indicar-badge {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #4f7474;
+    letter-spacing: 0.05em;
+    font-family: "Manrope", sans-serif;
+}
+
+.indicar-title {
+    font-size: 4rem;
+    line-height: 1.05;
+    color: #0f5661;
+    font-weight: 700;
+    max-width: 580px;
+}
+
+.indicar-text {
+    max-width: 500px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #6f7272;
+}
+
+.indicar-image {
+    width: 450px;
+}
+
+.indicar-scroll {
+    margin-top: 80px;
+    font-size: 3rem;
+    color: #de7e67;
+}
+
+.funciona-section {
+    background-color: #F5F2ED;
+    padding: 90px 0;
+}
+
+.funciona-title {
+    font-size: 2.7rem;
+    color: #0f5661;
+}
+
+.funciona-card {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 35px 28px;
+    height: 100%;
+}
+
+.funciona-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #e4f0ea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 1.3rem;
+}
+
+.funciona-card-title {
+    font-size: 1.5rem;
+    color: #0f5661;
+    line-height: 1.4;
+}
+
+.funciona-card-text {
+    margin-top: 15px;
+    color: #777;
+    line-height: 1.8;
+}
+
+.form-section {
+    padding: 90px 0 40px;
+}
+
+.form-wrapper {
+    border: 1px solid #ece5db;
+    border-radius: 20px;
+    padding: 45px;
+    background-color: #fffdf9;
+}
+
+.form-block {
+    margin-bottom: 60px;
+}
+
+.form-title {
+    font-size: 2rem;
+    color: #0f5661;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #6b6b6b;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border: 1px solid #ece7df;
+    background-color: #f8f5f1;
+    border-radius: 10px;
+    padding: 14px 16px;
+    height: 52px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #0f5661;
+    background-color: #fff;
+}
+
+.textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.checkbox-grid label {
+    background-color: #f8f5f1;
+    border: 1px solid #ece7df;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.95rem;
+}
+
+.analysis-card {
+    background-color: #dff0ea;
+    padding: 35px;
+    border-radius: 16px;
+    position: sticky;
+    top: 120px;
+}
+
+.analysis-title {
+    color: #355e5f;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.analysis-card p {
+    color: #546868;
+    line-height: 1.8;
+}
+
+.check-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.check-item {
+    display: flex;
+    gap: 10px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.form-buttons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.btn-voltar {
+    border: 1px solid #d9d5cf;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #5d6565;
+    font-weight: 600;
+}
+
+.btn-enviar {
+    border: none;
+    background-color: #b15a46;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.btn-enviar:hover {
+    background-color: #984734;
+}
+
+@media (max-width: 991px) {
+
+    .indicar-title {
+        font-size: 3rem;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analysis-card {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .indicar-title {
+        font-size: 2.3rem;
+    }
+
+    .form-wrapper {
+        padding: 28px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn-voltar,
+    .btn-enviar {
+        width: 100%;
+        text-align: center;
+    }
+}

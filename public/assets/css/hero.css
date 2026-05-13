@@ -65,7 +65,6 @@
 .hero-image {
     max-width: 100%;
     width: 500px;
-    height: auto;
 }
 
 .hero-bottom {
@@ -73,14 +72,33 @@
 }
 
 .hero-scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-arrow {
     font-size: 1.8rem;
     font-weight: 700;
     color: #0f5661;
+}
+
+.hero-text-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f5661;
+
+    text-decoration: none;
+}
+
+.hero-text-link span {
     text-decoration: underline;
     text-underline-offset: 8px;
 }
 
-.hero-scroll:hover {
+.hero-scroll:hover .hero-text-link,
+.hero-scroll:hover .hero-arrow {
     color: #0c434b;
 }
 
@@ -130,7 +148,8 @@
         max-width: 320px;
     }
 
-    .hero-scroll {
+    .hero-text-link,
+    .hero-arrow {
         font-size: 1.3rem;
     }
 }

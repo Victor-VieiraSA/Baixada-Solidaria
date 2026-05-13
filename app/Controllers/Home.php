@@ -8,4 +8,15 @@ class Home extends BaseController
     {
         return view('home');
     }
+
+    public function pontos()
+    {
+    return view('pontos');
+    }
+
+    public function indicar()
+    {
+    return view('indicar');
+    }
+
 }
