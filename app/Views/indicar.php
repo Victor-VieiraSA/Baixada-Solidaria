@@ -140,255 +140,210 @@
 
                     <div class="form-wrapper">
 
-                        <form>
+                        <form action="<?= site_url('/ponto/salvar') ?>" method="post">
+    <?= csrf_field() ?>
 
-                            <!-- DADOS -->
-                            <div class="form-block">
+    <!-- DADOS -->
+    <div class="form-block">
+        <h2 class="form-title title">Dados do Ponto</h2>
 
-                                <h2 class="form-title title">
-                                    Dados do Ponto
-                                </h2>
+        <div class="row g-3 mt-1">
 
-                                <div class="row g-3 mt-1">
+            <div class="col-md-6">
+                <label class="form-label">Nome do ponto *</label>
+                <input
+                    type="text"
+                    name="nome_ponto"
+                    class="form-control"
+                    placeholder="Ex: Creche Alegria"
+                    value="<?= old('nome_ponto') ?>"
+                >
+            </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Nome do ponto *
-                                        </label>
+            <div class="col-md-6">
+                <label class="form-label">Nome da instituição (se houver)</label>
+                <input
+                    type="text"
+                    name="nome_instituicao"
+                    class="form-control"
+                    placeholder="Ex: Associação de Moradores"
+                    value="<?= old('nome_instituicao') ?>"
+                >
+            </div>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Ex: Creche Alegria"
-                                        >
-                                    </div>
+            <div class="col-md-6">
+                <label class="form-label">Responsável</label>
+                <input
+                    type="text"
+                    name="responsavel"
+                    class="form-control"
+                    placeholder="Nome da pessoa responsável"
+                    value="<?= old('responsavel') ?>"
+                >
+            </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Nome da instituição (se houver)
-                                        </label>
+            <div class="col-md-6">
+                <label class="form-label">E-mail</label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="contato@exemplo.com"
+                    value="<?= old('email') ?>"
+                >
+            </div>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Ex: Associação de Moradores"
-                                        >
-                                    </div>
+            <div class="col-md-6">
+                <label class="form-label">WhatsApp / Telefone</label>
+                <input
+                    type="text"
+                    name="whatsapp"
+                    class="form-control"
+                    placeholder="(00) 00000-0000"
+                    value="<?= old('whatsapp') ?>"
+                >
+            </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Responsável
-                                        </label>
+        </div>
+    </div>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Nome da pessoa responsável"
-                                        >
-                                    </div>
+    <!-- ENDEREÇO -->
+    <div class="form-block">
+        <h2 class="form-title title">Endereço</h2>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            E-mail
-                                        </label>
+        <div class="row g-3 mt-1">
 
-                                        <input
-                                            type="email"
-                                            class="form-control"
-                                            placeholder="contato@exemplo.com"
-                                        >
-                                    </div>
+            <div class="col-12">
+                <label class="form-label">Endereço completo *</label>
+                <input
+                    type="text"
+                    name="endereco_completo"
+                    class="form-control"
+                    placeholder="Rua, número, complemento"
+                    value="<?= old('endereco_completo') ?>"
+                >
+            </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            WhatsApp / Telefone
-                                        </label>
+            <div class="col-md-6">
+                <label class="form-label">Bairro *</label>
+                <input
+                    type="text"
+                    name="bairro"
+                    class="form-control"
+                    placeholder="Nome do bairro"
+                    value="<?= old('bairro') ?>"
+                >
+            </div>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="(00) 00000-0000"
-                                        >
-                                    </div>
+            <div class="col-md-6">
+                <label class="form-label">Cidade *</label>
+                <input
+                    type="text"
+                    name="cidade"
+                    class="form-control"
+                    placeholder="Cidade"
+                    value="<?= old('cidade') ?>"
+                >
+            </div>
 
-                                </div>
+            <div class="col-md-6">
+                <label class="form-label">CEP</label>
+                <input
+                    type="text"
+                    name="cep"
+                    class="form-control"
+                    placeholder="00000-000"
+                    value="<?= old('cep') ?>"
+                >
+            </div>
 
-                            </div>
+        </div>
+    </div>
 
-                            <!-- ENDEREÇO -->
-                            <div class="form-block">
+    <!-- TIPOS -->
+    <div class="form-block">
+        <h2 class="form-title title">Tipos de Doações Aceitas</h2>
 
-                                <h2 class="form-title title">
-                                    Endereço
-                                </h2>
+        <div class="checkbox-grid mt-4">
+            <label><input type="checkbox" name="aceita_alimentos"        value="1" <?= old('aceita_alimentos')        ? 'checked' : '' ?>> Alimentos</label>
+            <label><input type="checkbox" name="aceita_roupas"           value="1" <?= old('aceita_roupas')           ? 'checked' : '' ?>> Roupas</label>
+            <label><input type="checkbox" name="aceita_brinquedos"       value="1" <?= old('aceita_brinquedos')       ? 'checked' : '' ?>> Brinquedos</label>
+            <label><input type="checkbox" name="aceita_higiene"          value="1" <?= old('aceita_higiene')          ? 'checked' : '' ?>> Higiene</label>
+            <label><input type="checkbox" name="aceita_material_escolar" value="1" <?= old('aceita_material_escolar') ? 'checked' : '' ?>> Material Escolar</label>
+            <label><input type="checkbox" name="aceita_moveis"           value="1" <?= old('aceita_moveis')           ? 'checked' : '' ?>> Móveis</label>
+            <label><input type="checkbox" name="aceita_outros"           value="1" <?= old('aceita_outros')           ? 'checked' : '' ?>> Outros</label>
+        </div>
+    </div>
 
-                                <div class="row g-3 mt-1">
+    <!-- DETALHES -->
+    <div class="form-block">
+        <h2 class="form-title title">Detalhes Adicionais</h2>
 
-                                    <div class="col-12">
-                                        <label class="form-label">
-                                            Endereço completo *
-                                        </label>
+        <div class="row g-3 mt-1">
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Rua, número, complemento"
-                                        >
-                                    </div>
+            <div class="col-12">
+                <label class="form-label">O que estão precisando no momento?</label>
+                <textarea
+                    name="necessidades_urgentes"
+                    class="form-control textarea"
+                    placeholder="Especifique urgências..."
+                ><?= old('necessidades_urgentes') ?></textarea>
+            </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Bairro *
-                                        </label>
+            <div class="col-md-6">
+                <label class="form-label">Horário de funcionamento</label>
+                <input
+                    type="text"
+                    name="horario_funcionamento"
+                    class="form-control"
+                    placeholder="Ex: Seg a Sex, 09h às 17h"
+                    value="<?= old('horario_funcionamento') ?>"
+                >
+            </div>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Nome do bairro"
-                                        >
-                                    </div>
+            <div class="col-md-6">
+                <label class="form-label">Redes Sociais</label>
+                <input
+                    type="text"
+                    name="redes_sociais"
+                    class="form-control"
+                    placeholder="@instagram ou link do facebook"
+                    value="<?= old('redes_sociais') ?>"
+                >
+            </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Cidade *
-                                        </label>
+            <div class="col-12">
+                <label class="form-label">Observações</label>
+                <textarea
+                    name="observacoes"
+                    class="form-control textarea"
+                    placeholder="Algo mais que devemos saber?"
+                ><?= old('observacoes') ?></textarea>
+            </div>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Cidade"
-                                        >
-                                    </div>
+        </div>
+    </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            CEP
-                                        </label>
+    <!-- CHECKBOXES DE DECLARAÇÃO -->
+    <div class="check-wrapper">
+        <label class="check-item">
+            <input type="checkbox" name="declaracao" value="1" required>
+            Declaro que as informações fornecidas são verdadeiras e me responsabilizo por elas.
+        </label>
 
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="00000-000"
-                                        >
-                                    </div>
+        <label class="check-item">
+            <input type="checkbox" name="consentimento" value="1" required>
+            Consinto com o contato da equipe da Baixada Solidária para verificação dos dados.
+        </label>
+    </div>
 
-                                </div>
+    <!-- BUTTONS -->
+    <div class="form-buttons">
+        <a href="<?= base_url('/') ?>" class="btn-voltar">Voltar</a>
+        <button type="submit" class="btn-enviar">Enviar solicitação</button>
+    </div>
 
-                            </div>
-
-                            <!-- TIPOS -->
-                            <div class="form-block">
-
-                                <h2 class="form-title title">
-                                    Tipos de Doações Aceitas
-                                </h2>
-
-                                <div class="checkbox-grid mt-4">
-
-                                    <label><input type="checkbox"> Alimentos</label>
-                                    <label><input type="checkbox"> Roupas</label>
-                                    <label><input type="checkbox"> Brinquedos</label>
-                                    <label><input type="checkbox"> Higiene</label>
-                                    <label><input type="checkbox"> Material Escolar</label>
-                                    <label><input type="checkbox"> Móveis</label>
-                                    <label><input type="checkbox"> Outros</label>
-
-                                </div>
-
-                            </div>
-
-                            <!-- DETALHES -->
-                            <div class="form-block">
-
-                                <h2 class="form-title title">
-                                    Detalhes Adicionais
-                                </h2>
-
-                                <div class="row g-3 mt-1">
-
-                                    <div class="col-12">
-                                        <label class="form-label">
-                                            O que estão precisando no momento?
-                                        </label>
-
-                                        <textarea
-                                            class="form-control textarea"
-                                            placeholder="Especifique urgências..."
-                                        ></textarea>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Horário de funcionamento
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Ex: Seg a Sex, 09h às 17h"
-                                        >
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Redes Sociais
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="@instagram ou link do facebook"
-                                        >
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label">
-                                            Observações
-                                        </label>
-
-                                        <textarea
-                                            class="form-control textarea"
-                                            placeholder="Algo mais que devemos saber?"
-                                        ></textarea>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <!-- CHECKBOX -->
-                            <div class="check-wrapper">
-
-                                <label class="check-item">
-                                    <input type="checkbox">
-
-                                    Declaro que as informações fornecidas
-                                    são verdadeiras e me responsabilizo por elas.
-                                </label>
-
-                                <label class="check-item">
-                                    <input type="checkbox">
-
-                                    Consinto com o contato da equipe da
-                                    Baixada Solidária para verificação dos dados.
-                                </label>
-
-                            </div>
-
-                            <!-- BUTTONS -->
-                            <div class="form-buttons">
-
-                                <a href="<?= base_url('/') ?>" class="btn-voltar">
-                                    Voltar
-                                </a>
-
-                                <button type="submit" class="btn-enviar">
-                                    Enviar solicitação
-                                </button>
-
-                            </div>
-
-                        </form>
+</form>
 
                     </div>
 

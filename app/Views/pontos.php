@@ -23,189 +23,170 @@
                 </p>
             </div>
 
-            <!-- FILTROS -->
-            <div class="filtros-box mt-5">
-                <div class="row g-3">
+        <!-- FILTROS -->
+            <form method="get" action="<?= site_url('/pontos') ?>">
+                <div class="filtros-box mt-5">
+                    <div class="row g-3">
 
-                    <div class="col-lg-5">
-                        <label class="filtro-label">Busca</label>
+                        <div class="col-lg-5">
+                            <label class="filtro-label">Busca</label>
+                            <input
+                                type="text"
+                                name="busca"
+                                class="form-control filtro-input"
+                                placeholder="Busque por bairro, cidade..."
+                                value="<?= esc($filtros['busca'] ?? '') ?>"
+                            >
+                        </div>
 
-                        <input
-                            type="text"
-                            class="form-control filtro-input"
-                            placeholder="Busque por bairro, cidade..."
-                        >
+                        <div class="col-lg-2">
+                            <label class="filtro-label">Cidade</label>
+                            <select name="cidade" class="form-select filtro-input">
+                                <option value="">Todas as Cidades</option>
+                                <?php foreach ($todasCidades as $c): ?>
+                                    <option value="<?= esc($c['cidade']) ?>"
+                                        <?= (($filtros['cidade'] ?? '') === $c['cidade']) ? 'selected' : '' ?>>
+                                        <?= esc($c['cidade']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <label class="filtro-label">Bairro</label>
+                            <select name="bairro" class="form-select filtro-input">
+                                <option value="">Todos os Bairros</option>
+                                <?php foreach ($todosBairros as $b): ?>
+                                    <option value="<?= esc($b['bairro']) ?>"
+                                        <?= (($filtros['bairro'] ?? '') === $b['bairro']) ? 'selected' : '' ?>>
+                                        <?= esc($b['bairro']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label class="filtro-label">Tipo de Doação</label>
+                            <select name="tipo" class="form-select filtro-input">
+                                <option value="">Todos os Tipos</option>
+                                <option value="aceita_alimentos"        <?= (($filtros['tipo'] ?? '') === 'aceita_alimentos')        ? 'selected' : '' ?>>Alimentos</option>
+                                <option value="aceita_roupas"           <?= (($filtros['tipo'] ?? '') === 'aceita_roupas')           ? 'selected' : '' ?>>Roupas</option>
+                                <option value="aceita_brinquedos"       <?= (($filtros['tipo'] ?? '') === 'aceita_brinquedos')       ? 'selected' : '' ?>>Brinquedos</option>
+                                <option value="aceita_higiene"          <?= (($filtros['tipo'] ?? '') === 'aceita_higiene')          ? 'selected' : '' ?>>Higiene</option>
+                                <option value="aceita_material_escolar" <?= (($filtros['tipo'] ?? '') === 'aceita_material_escolar') ? 'selected' : '' ?>>Material Escolar</option>
+                                <option value="aceita_moveis"           <?= (($filtros['tipo'] ?? '') === 'aceita_moveis')           ? 'selected' : '' ?>>Móveis</option>
+                                <option value="aceita_outros"           <?= (($filtros['tipo'] ?? '') === 'aceita_outros')           ? 'selected' : '' ?>>Outros</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-7 d-flex align-items-end">
+                        </div>
+                        <div class="col-lg-5 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">
+                                Buscar
+                            </button>
+                        </div>
+
                     </div>
-
-                    <div class="col-lg-2">
-                        <label class="filtro-label">Cidade</label>
-
-                        <select class="form-select filtro-input">
-                            <option>Todas as Cidades</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <label class="filtro-label">Bairro</label>
-
-                        <select class="form-select filtro-input">
-                            <option>Todos os Bairros</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <label class="filtro-label">Tipo de Doação</label>
-
-                        <select class="form-select filtro-input">
-                            <option>Todos os Tipos</option>
-                        </select>
-                    </div>
-
                 </div>
-            </div>
-
+            </form>
         </div>
     </section>
 
-    <!-- CARDS -->
-    <section class="pontos-cards">
-        <div class="container">
+<!-- CARDS -->
+<section class="pontos-cards">
+    <div class="container">
 
-            <div class="row g-4">
+        <div class="row g-4">
 
-                <!-- CARD -->
+            <?php if (!empty($pontos)): ?>
+
+                <?php foreach ($pontos as $ponto): ?>
                 <div class="col-md-6 col-lg-4">
                     <div class="ponto-card">
 
-                        <img
-                            src="<?= base_url('assets/img/ponto1.png') ?>"
-                            alt="Ponto de coleta"
-                            class="img-fluid ponto-card-image"
-                        >
+                        <!-- Imagem -->
+                        <?php if (!empty($ponto['imagem'])): ?>
+                            <img
+                                src="<?= base_url('uploads/pontos/' . $ponto['imagem']) ?>"
+                                alt="<?= esc($ponto['nome_ponto']) ?>"
+                                class="img-fluid ponto-card-image"
+                            >
+                        <?php else: ?>
+                            <img
+                                src="<?= base_url('assets/img/placeholder.jpg') ?>"
+                                alt="Sem imagem"
+                                class="img-fluid ponto-card-image"
+                            >
+                        <?php endif; ?>
 
                         <div class="ponto-card-body">
 
+                            <!-- Tags de doação -->
                             <div class="ponto-tags">
-                                <span>ALIMENTOS</span>
-                                <span>ROUPAS</span>
+                                <?php if ($ponto['aceita_alimentos'])        echo '<span>ALIMENTOS</span>'; ?>
+                                <?php if ($ponto['aceita_roupas'])           echo '<span>ROUPAS</span>'; ?>
+                                <?php if ($ponto['aceita_brinquedos'])       echo '<span>BRINQUEDOS</span>'; ?>
+                                <?php if ($ponto['aceita_higiene'])          echo '<span>HIGIENE</span>'; ?>
+                                <?php if ($ponto['aceita_material_escolar']) echo '<span>MAT. ESCOLAR</span>'; ?>
+                                <?php if ($ponto['aceita_moveis'])           echo '<span>MÓVEIS</span>'; ?>
+                                <?php if ($ponto['aceita_outros'])           echo '<span>OUTROS</span>'; ?>
                             </div>
 
+                            <!-- Nome -->
                             <h3 class="ponto-card-title title">
-                                Centro Comunitário Esperança
+                                <?= esc($ponto['nome_ponto']) ?>
                             </h3>
 
-                            <p class="ponto-card-inst">
-                                Inst. Mãos Dadas
-                            </p>
+                            <!-- Instituição -->
+                            <?php if (!empty($ponto['nome_instituicao'])): ?>
+                                <p class="ponto-card-inst">
+                                    <?= esc($ponto['nome_instituicao']) ?>
+                                </p>
+                            <?php endif; ?>
 
+                            <!-- Endereço e horário -->
                             <ul class="ponto-info">
-                                <li>Rua Flores, 123 - Gonzaga, Santos - SP</li>
-                                <li>Seg a Sex, 08h às 17h</li>
+                                <li><?= esc($ponto['endereco_completo']) ?> - <?= esc($ponto['bairro']) ?>, <?= esc($ponto['cidade']) ?></li>
+                                <?php if (!empty($ponto['horario_funcionamento'])): ?>
+                                    <li><?= esc($ponto['horario_funcionamento']) ?></li>
+                                <?php endif; ?>
                             </ul>
 
-                            <p class="ponto-desc">
-                                Ponto principal de arrecadação de alimentos
-                                não perecíveis e roupas.
-                            </p>
+                            <!-- Descrição -->
+                            <?php if (!empty($ponto['necessidades_urgentes'])): ?>
+                                <p class="ponto-desc">
+                                    <?= esc($ponto['necessidades_urgentes']) ?>
+                                </p>
+                            <?php endif; ?>
 
-                            <a href="#" class="btn ponto-btn">
-                                Como chegar
-                            </a>
+                            <!-- Botão Google Maps -->
+                            <?php if (!empty($ponto['link_maps'])): ?>
+                                <a href="<?= esc($ponto['link_maps']) ?>" target="_blank" class="btn ponto-btn">
+                                    Como chegar
+                                </a>
+                            <?php else: ?>
+                                <a href="#" class="btn ponto-btn disabled">
+                                    Como chegar
+                                </a>
+                            <?php endif; ?>
 
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
 
-                <!-- CARD -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="ponto-card">
+            <?php else: ?>
 
-                        <img
-                            src="<?= base_url('assets/img/ponto2.png') ?>"
-                            alt="Ponto de coleta"
-                            class="img-fluid ponto-card-image"
-                        >
-
-                        <div class="ponto-card-body">
-
-                            <div class="ponto-tags">
-                                <span>BRINQUEDOS</span>
-                                <span>LIVROS</span>
-                            </div>
-
-                            <h3 class="ponto-card-title title">
-                                Espaço Biblioteca Solidária
-                            </h3>
-
-                            <p class="ponto-card-inst">
-                                Assoc. Cultura Viva
-                            </p>
-
-                            <ul class="ponto-info">
-                                <li>Av. Presidente Wilson, 45 - SP</li>
-                                <li>Ter a Sáb, 10h às 18h</li>
-                            </ul>
-
-                            <p class="ponto-desc">
-                                Foco em materiais educativos,
-                                livros infantis e brinquedos.
-                            </p>
-
-                            <a href="#" class="btn ponto-btn">
-                                Como chegar
-                            </a>
-
-                        </div>
-                    </div>
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">Nenhum ponto encontrado com os filtros selecionados.</p>
                 </div>
 
-                <!-- CARD -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="ponto-card">
-
-                        <img
-                            src="<?= base_url('assets/img/ponto3.png') ?>"
-                            alt="Ponto de coleta"
-                            class="img-fluid ponto-card-image"
-                        >
-
-                        <div class="ponto-card-body">
-
-                            <div class="ponto-tags">
-                                <span>HIGIENE</span>
-                                <span>ALIMENTOS</span>
-                            </div>
-
-                            <h3 class="ponto-card-title title">
-                                Posto de Arrecadação Central
-                            </h3>
-
-                            <p class="ponto-card-inst">
-                                Projeto Acolher
-                            </p>
-
-                            <ul class="ponto-info">
-                                <li>Rua Marechal Deodoro, 890</li>
-                                <li>Seg a Dom, 09h às 20h</li>
-                            </ul>
-
-                            <p class="ponto-desc">
-                                Grande capacidade para itens de higiene
-                                pessoal e alimentos.
-                            </p>
-
-                            <a href="#" class="btn ponto-btn">
-                                Como chegar
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <?php endif; ?>
 
         </div>
-    </section>
+
+    </div>
+</section>
 
     <!-- DESTAQUES -->
     <section class="destaques-section">
